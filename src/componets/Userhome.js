@@ -24,7 +24,7 @@ export default function Userhome() {
     const user1 = localStorage.getItem('uid');
 
     useEffect(() => {
-        
+
         const userRef = collection(getFirestore(), "users")
         const q = query(userRef, where("uid", "!=", ["Jab2fK78s8RXNYx0c8UJfDEgRt12"]));
         // execute query
