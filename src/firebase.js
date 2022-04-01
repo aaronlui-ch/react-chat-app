@@ -3,9 +3,9 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs } from 'firebase/firestore';
 import { getAuth, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 
-import { setDoc, doc } from 'firebase/firestore';
+import { setDoc, doc, updateDoc } from 'firebase/firestore';
 
-import { query, where, addDoc } from 'firebase/firestore';
+import { query, where } from 'firebase/firestore';
 
 import React from 'react';
 
@@ -23,7 +23,7 @@ const app = initializeApp(firebaseConfig);
 
 const db = getFirestore(app);
 
-const auth = getAuth();
+const auth = getAuth(app);
 
 const GoogleProvider = new GoogleAuthProvider()
 
@@ -55,21 +55,32 @@ const signInWithGoogle = async () => {
     const q = query(collection(getFirestore(), "users"), where("uid", "==", user.uid));
     const docs = await getDocs(q);
 
+    localStorage.setItem("user", JSON.stringify(user))
 
     localStorage.setItem("name", user.displayName)
     localStorage.setItem("email", user.email)
-    localStorage.setItem("photo", user.profilePic)
+    localStorage.setItem("photo", user.photoURL)
     localStorage.setItem("uid", user.uid)
     localStorage.setItem("accessToken", user.accessToken)
 
     if (docs.docs.length === 0) {
-      await addDoc(collection(db, "users"), {
+      await setDoc(doc(db, "users",user.uid), {
         uid: user.uid,
         name: user.displayName,
         authProvider: "google",
         email: user.email,
+        isOnline: true,
+        photoURL:user.photoURL,
+        win:0,
+        matchPlayed:0,
+      },'test');
+    } else {
+      await updateDoc(doc(db, "users",user.uid), {
+        isOnline: true
       });
     }
+
+
   } catch (err) {
     console.error(err);
     alert(err.message);
@@ -78,11 +89,10 @@ const signInWithGoogle = async () => {
 
 const userContext = React.createContext();
 
-var islogin = false
 
 
 
 
 
 
-export { auth, db, signInWithGoogle, userContext, islogin }
+export { auth, db, signInWithGoogle, userContext }

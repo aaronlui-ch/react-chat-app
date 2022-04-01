@@ -10,12 +10,15 @@ function SignIn() {
 
     const { islogin, setIslogin } = useContext(userContext);
 
-    const handleSignin = async () => {
+    const handleSignin = async (e) => {
+        e.preventDefault();
         await signInWithGoogle()
         if (localStorage.getItem('accessToken')) {
             setIslogin(prev => true)
 
         }
+
+
 
     }
     return (

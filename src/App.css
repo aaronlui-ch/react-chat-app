@@ -31,11 +31,75 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.img-border {
+  border-radius: 50%;
+}
+
+.icon {
+  height: 80px;
+}
+
+.minheight {
+  min-height: 100vh;
+}
+
+.rightLine {
+  border-right: 1px solid grey;
+}
+.dot {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: inline-block;
+
+
+  position: absolute;
+  bottom: 8px;
+  right: 14px;
+
+  border: 2px solid #282c34;
+
+}
+
+.overlap {
+  position: relative;
+  left: 0;
+  top: 0;
+  
+}
+
+.base
+{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+
+.borderBot{
+  border-bottom: 2px solid grey;
+}
+
+
+.centerdiv{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.optionSelect{
+  font-size: 4em;
+}
+
+.navbar{
+  background-color: #4a5261;
+}
+
+
+.chatHistory{
+overflow-y: scroll;
+
+}
+
+.messageBox{
+  
 }
