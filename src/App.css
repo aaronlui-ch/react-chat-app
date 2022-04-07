@@ -5,9 +5,8 @@
   color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.bg {
+  background-color: #282c34;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -52,54 +51,70 @@
   border-radius: 50%;
   display: inline-block;
 
-
   position: absolute;
   bottom: 8px;
   right: 14px;
 
   border: 2px solid #282c34;
-
 }
 
 .overlap {
   position: relative;
   left: 0;
   top: 0;
-  
 }
 
-.base
-{
+.base {
   position: relative;
   top: 0;
   left: 0;
 }
 
-
-.borderBot{
+.borderBot {
   border-bottom: 2px solid grey;
 }
 
-
-.centerdiv{
+.centerdiv {
   align-items: center;
   justify-content: center;
   display: flex;
 }
-.optionSelect{
+.optionSelect {
   font-size: 4em;
 }
 
-.navbar{
+.navbar {
   background-color: #4a5261;
 }
 
-
-.chatHistory{
-overflow-y: scroll;
-
+.chatHistory {
+  overflow-y: scroll;
 }
 
-.messageBox{
-  
+.messageBox {
+  padding: 12px 20px;
+  border-radius: 8px;
+}
+
+.darkpink {
+  background-color: #980f5a;
+}
+
+.darkpurple {
+  background-color: #7a0bc0;
+}
+
+.horizScroll {
+  overflow: scroll;
+}
+.displayWebkit {
+  display: -webkit-box;
+}
+
+.clickpointer {
+  cursor: pointer;
+}
+
+.notAllow {
+  cursor: not-allowed;
 }

@@ -4,8 +4,14 @@ export default function Userlist({ user, selectUser }) {
   return (
     <>
       <div
-        className="d-flex align-items-center my-3 "
-        onClick={() => selectUser(user)}
+        className={`d-flex align-items-center my-3 mr-4 clickpointer ${
+          user.isOnline ? "clickpointer" : "notAllow"
+        } `}
+        onClick={() => {
+          
+          
+          user.isOnline ?
+          selectUser(user):alert("You can only match with online player!")}}
       >
         <div className="overlap base img-border">
           <img
